@@ -1,21 +1,15 @@
-import Image from 'next/image';
 import React from 'react';
+import MeetupDetail from '../../components/meetups/MeetupDetail';
 
-const MeetupDetail = () => {
+const MeetupDetailPage = () => {
   return (
-    <>
-      <Image
-        src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Venezia_Palazzo_Ducale_01.jpg/800px-Venezia_Palazzo_Ducale_01.jpg'
-        alt='A First Meetup'
-        width={640}
-        height={300}
-        objectFit='cover'
-      />
-      <h1>A First Meetup</h1>
-      <address>Some Street 5, 12345 Some City</address>
-      <p>The meetup description</p>
-    </>
+    <MeetupDetail
+      image='https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Venezia_Palazzo_Ducale_01.jpg/800px-Venezia_Palazzo_Ducale_01.jpg'
+      address='Some Street 5, 12345 Some City'
+      description='The meetup description'
+      title='A First Meetup'
+    />
   );
 };
 
-export default MeetupDetail;
+export default MeetupDetailPage;
