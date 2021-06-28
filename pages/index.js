@@ -1,7 +1,7 @@
-import { MongoClient } from 'mongodb';
 import Head from 'next/head';
 import React from 'react';
 import MeetupList from '../components/meetups/MeetupList';
+import { getMeetupsCollection } from '../utils';
 
 const HomePage = ({ meetups }) => {
   return (
@@ -21,12 +21,8 @@ const HomePage = ({ meetups }) => {
 export const getStaticProps = async () => {
   // fetch data from an API
 
-  const client = await MongoClient.connect(
-    'mongodb+srv://dbUser:sRZy0FvVPoNaRP69@cluster0.qw4dx.mongodb.net/meetupsDB?retryWrites=true&w=majority'
-  );
-  const db = client.db();
+  const { client, meetupsCollection } = await getMeetupsCollection();
 
-  const meetupsCollection = db.collection('meetups');
   const meetups = await meetupsCollection.find().toArray();
 
   client.close();
