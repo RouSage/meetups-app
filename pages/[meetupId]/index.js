@@ -4,17 +4,15 @@ import React from 'react';
 import MeetupDetail from '../../components/meetups/MeetupDetail';
 import { getMeetupsCollection } from '../../utils';
 
-const MeetupDetailPage = ({ meetup }) => {
-  return (
-    <>
-      <Head>
-        <title>{meetup.title}</title>
-        <meta name='description' content={meetup.description} />
-      </Head>
-      <MeetupDetail {...meetup} />
-    </>
-  );
-};
+const MeetupDetailPage = ({ meetup }) => (
+  <>
+    <Head>
+      <title>{meetup.title}</title>
+      <meta name='description' content={meetup.description} />
+    </Head>
+    <MeetupDetail {...meetup} />
+  </>
+);
 
 export const getStaticPaths = async () => {
   const { client, meetupsCollection } = await getMeetupsCollection();

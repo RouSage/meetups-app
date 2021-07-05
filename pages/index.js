@@ -13,7 +13,7 @@ const HomePage = ({ meetups }) => {
           content='Browse a list of highly active React Meetups!'
         />
       </Head>
-      <MeetupList meetups={meetups} />;
+      <MeetupList meetups={meetups} />
     </>
   );
 };
